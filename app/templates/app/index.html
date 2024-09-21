@@ -1,5 +1,4 @@
 {% load static %}
-<!DOCTYPE html>
 <html>
   <head>
     <title>Уличные кухни гриль</title>
@@ -107,7 +106,7 @@
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link me-4" href="https://t.me/idyakin" target="_blank">
+                  <a class="nav-link me-4" href="https://t.me/{{ contact.telegram }}" target="_blank">
                     <img src="{% static 'images/icons8-telegram.svg' %}" height="25px">
                   </a>
                 </li>
@@ -223,7 +222,7 @@
 
     <br><br>
 
-    <section id="about-us">
+    <section id="products">
       <div class="container-fluid">
         <div class="row align-items-center justify-content-between g-5">
 
@@ -461,20 +460,20 @@
                 
                 <div style="display: inline">
                   <span>
-                    <a href="tel:+79999999999">+7 999 999 9999</a>
+                    <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
                   </span>&nbsp;
                   <span>
-                    <a href="https://wa.me/79999999999" target="_blank">
+                    <a href="https://wa.me/{{ contact.whatsapp }}" target="_blank">
                       <img src="{% static 'images/whatsapp-svgrepo-com.svg' %}" height="20px">
                     </a>&nbsp;
-                    <a href="https://t.me/idyakin" target="_blank">
+                    <a href="https://t.me/{{ contact.telegram }}" target="_blank">
                       <img src="{% static 'images/icons8-telegram.svg' %}" height="25px">
                     </a>
                   </span>
                 </div>
                 <br><br>
 
-                <p><a href="mailto:">info@woodsepta.ru</a></p>
+                <p><a href="mailto:">{{ contact.email }}</a></p>
                 <p>{{ contact.address }}</p>
               </div>
             </div>

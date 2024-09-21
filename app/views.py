@@ -16,13 +16,13 @@ class IndexView(View):
         lst = []
 
         for i in kitchens:
-            print(i.__dict__)
+            # print(i.__dict__)
             lst.append(i.__dict__)
 
         for i in grills:
             print(i.__dict__)
 
-        print("CONTACT: ", contact.__dict__)
+        # print("CONTACT: ", contact.__dict__)
 
         context = {"contact": contact}
         return render(request, "app/index.html", context)
