@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  grills:
+    build:
+      context: .
+      dockerfile: ./DockerFile
+    ports:
+    - "8080:8080"
+    volumes:
+      - ./media:/app/media
+      - ./db.sqlite3:/app/db.sqlite3
+    logging:
+      options:
+        max-size: 50m
+    depends_on:
+      db-woods:
+        condition: service_healthy
+
