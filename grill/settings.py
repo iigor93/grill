@@ -29,7 +29,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ.get("DEBUG") == "True" else False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [os.environ["ALLOWED_HOSTS"]]
+CSRF_TRUSTED_ORIGINS = [f'https://{os.environ["ALLOWED_HOSTS"]}']
 
 
 # Application definition
@@ -78,11 +79,20 @@ WSGI_APPLICATION = 'grill.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+SQLITE = {
+    'ENGINE': 'django.db.backends.sqlite3',
+    'NAME': BASE_DIR / 'db.sqlite3',
+}
+
+POSTGRESQL = {'ENGINE': 'django.db.backends.postgresql_psycopg2',
+              'NAME':  os.environ["POSTGRES_DB"],
+              'USER':  os.environ["POSTGRES_USER"],
+              'PASSWORD':  os.environ["POSTGRES_PASSWORD"],
+              'HOST':  os.environ["POSTGRES_HOST"],
+              'PORT':  os.environ["POSTGRES_PORT"], }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': SQLITE if DEBUG else POSTGRESQL
 }
 
 
