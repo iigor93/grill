@@ -79,7 +79,7 @@
         <div class="container-fluid">
           
           <a class="navbar-brand" href="#">
-            <img src="{% static 'images/main-logo.png' %}" class="logo">
+            <img src="{% static 'images/logo_we.png' %}" class="logo">
           </a>
           
           <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
@@ -126,7 +126,7 @@
                 <div class="col-md-12">
                   <div class="banner-item" style="background-image: url({% static 'images/banner-image-grill.jpg' %}); background-repeat: no-repeat; background-position: right; height: 682px;">
                     <div class="banner-content padding-large">
-                      <h1 class="display-1 text-uppercase text-dark pb-2">уличные кухни гриль</h1>
+                      <h1 class="display-1 text-uppercase text-dark pb-2">Уличные кухни гриль</h1>
                       <p>Уличные кухни-гриль. Воплощаем лучшие идеи от проекта до установки!<br>
                         WOODSEPTA это современные уличные кухни, созданные из сверхпрочных материалов!</p>                      
                     </div>
@@ -236,19 +236,37 @@
               <div id="carouselExampleIndicators_{{ forloop.counter0 }}" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
                   <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  {% if kitchen.photo_2 %}
+                    <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  {% endif %}
+                  {% if kitchen.photo_3 %}
+                    <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  {% endif %}
+                  {% if kitchen.photo_4 %}
+                    <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  {% endif %}
                 </div>
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
-                  </div>
+                  {% if kitchen.photo_1 %}
+                    <div class="carousel-item active">
+                      <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
+                    </div>
+                  {% endif %}
+                  {% if kitchen.photo_2 %}
+                    <div class="carousel-item">
+                      <img src="{{ kitchen.photo_2.url }}" class="d-block w-100" alt="...">
+                    </div>
+                  {% endif %}
+                  {% if kitchen.photo_3 %}
+                    <div class="carousel-item">
+                      <img src="{{ kitchen.photo_3.url }}" class="d-block w-100" alt="...">
+                    </div>
+                  {% endif %}
+                  {% if kitchen.photo_4 %}
+                    <div class="carousel-item">
+                      <img src="{{ kitchen.photo_4.url }}" class="d-block w-100" alt="...">
+                    </div>
+                  {% endif %}
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -291,19 +309,37 @@
                 <div id="carouselExampleIndicators2_{{ forloop.counter0 }}" class="carousel slide" data-bs-ride="carousel">
                   <div class="carousel-indicators">
                     <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    {% if kitchen.photo_2 %}
+                      <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    {% endif %}
+                    {% if kitchen.photo_3 %}
+                      <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    {% endif %}
+                    {% if kitchen.photo_4 %}
+                      <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                    {% endif %}
                   </div>
                   <div class="carousel-inner">
+                  {% if kitchen.photo_1 %}
                     <div class="carousel-item active">
-                      <img src="{{ kitchen.photo_1 }}" class="d-block w-100" alt="...">
+                      <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
                     </div>
+                  {% endif %}
+                  {% if kitchen.photo_2 %}
                     <div class="carousel-item">
-                      <img src="{{ kitchen.photo_1 }}" class="d-block w-100" alt="...">
+                      <img src="{{ kitchen.photo_2.url }}" class="d-block w-100" alt="...">
                     </div>
+                  {% endif %}
+                  {% if kitchen.photo_3 %}
                     <div class="carousel-item">
-                      <img src="{{ kitchen.photo_1 }}" class="d-block w-100" alt="...">
+                      <img src="{{ kitchen.photo_3.url }}" class="d-block w-100" alt="...">
                     </div>
+                  {% endif %}
+                  {% if kitchen.photo_4 %}
+                    <div class="carousel-item">
+                      <img src="{{ kitchen.photo_4.url }}" class="d-block w-100" alt="...">
+                    </div>
+                  {% endif %}
                   </div>
                   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"  data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -335,91 +371,35 @@
           <div class="swiper collection-swiper">
             <h2 class="display-2 text-uppercase">Варианты грилей</h2> 
             <div class="swiper-wrapper">
-              
+
+              {% for grill in grills %}
               <div class="swiper-slide overflow-hidden">
                 <div class="product-card">
                   <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
                     <h3 class="card-title text-uppercase">
-                      <div>Гриль №1</div>
+                      <div>{{ grill.name }}</div>
                     </h3>
                   </div>
                   <div class="image-overlay position-relative">
                     <div class="product-image">
-                      <img src="images/product-item5.jpg" alt="product-item" class="product-image img-fluid">
+                      <img src="{{ grill.photo_1.url }}" alt="product-item" class="product-image img-fluid">
                       <div class="text-box box-slide position-absolute">
                         <div class="text-content p-5 bg-light">
                           <h3>О гриле</h3>
-                          <p>Assumenda temporibus quidem ipsam. fuga corporis iusto similique voluptates sint quibusdam.</p>
+                          <p>{{ grill.description }}</p>
                           <ul>
-                            <li>размеры</li>
-                            <li>Преимущества</li>
-                            <li>Comfortable and Clean Room</li>
+                            <li>Стоимость {{ grill.price }}</li>
+<!--                            <li>Преимущества</li>-->
+<!--                            <li>Comfortable and Clean Room</li>-->
                           </ul>
-                          <a href="#" class="btn btn-normal mt-3">Learn More</a>
+<!--                          <a href="#" class="btn btn-normal mt-3">Learn More</a>-->
                         </div>
                       </div>
                     </div>
                   </div>                  
                 </div>
               </div>
-              
-              <div class="swiper-slide overflow-hidden">
-                <div class="product-card">
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="shop.html">Гриль №1</a>
-                    </h3>
-                  </div>
-                  <div class="image-overlay position-relative">
-                    <div class="product-image">
-                      <img src="images/product-item6.jpg" alt="product-item" class="product-image img-fluid">
-
-                      <div class="text-box box-slide position-absolute">
-                        <div class="text-content p-5 bg-light">
-                          <h3>About Room</h3>
-                          <p>Assumenda temporibus quidem ipsam. fuga corporis iusto similique voluptates sint quibusdam.</p>
-                          <ul>
-                            <li>Various Types of Bedroom</li>
-                            <li>Different Size of Bed</li>
-                            <li>Comfortable and Clean Room</li>
-                          </ul>
-                          <a href="#" class="btn btn-normal mt-3">Learn More</a>
-                        </div>
-                      </div>
-                    </div>
-                  <!-- product-image -->
-                  </div>                  
-                </div>
-              </div>
-
-              <div class="swiper-slide overflow-hidden">
-                <div class="product-card">
-                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                    <h3 class="card-title text-uppercase">
-                      <a href="shop.html">Kitchens</a>
-                    </h3>
-                  </div>
-                  <div class="image-overlay position-relative">
-                    <div class="product-image">
-                      <img src="images/product-item7.jpg" alt="product-item" class="product-image img-fluid">
-
-                      <div class="text-box box-slide position-absolute">
-                        <div class="text-content p-5 bg-light">
-                          <h3>About Kitchen</h3>
-                          <p>Assumenda temporibus quidem ipsam. fuga corporis iusto similique voluptates sint quibusdam.</p>
-                          <ul>
-                            <li>Various Types of Bedroom</li>
-                            <li>Different Size of Bed</li>
-                            <li>Comfortable and Clean Room</li>
-                          </ul>
-                          <a href="#" class="btn btn-normal mt-3">Learn More</a>
-                        </div>
-                      </div>
-                    </div>
-                  <!-- product-image -->
-                  </div>                  
-                </div>
-              </div>
+              {% endfor %}
 
             </div>
           </div>
@@ -448,7 +428,7 @@
             
             <div class="col-lg-6 col-sm-6 pb-3 pe-4">
               <div class="footer-menu">
-                <img src="{% static 'images/main-logo.png' %}" alt="logo" class="pb-3">
+                <img src="{% static 'images/logo_we.png' %}" alt="logo" class="pb-3">
                 <p>Кухни гриль на заказ. Москва и Московская область.<br>Работаем для Вас с 2006 года.</p>
               </div>
               <div class="copyright">
