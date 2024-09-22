@@ -221,32 +221,33 @@
     </section>
 
     <br><br>
-
+<!--Начало кухни-->
     <section id="products">
       <div class="container-fluid">
         <div class="row align-items-center justify-content-between g-5">
 
           <h2 class="display-2 text-dark text-uppercase">Наши продукты</h2> 
 
-          
+          {% for kitchen in kitchens %}
+          {% if forloop.counter0|divisibleby:2 %}
           <div class="col-lg-6">
             <div class="image-holder mb-4 jarallax">
 
-              <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+              <div id="carouselExampleIndicators_{{ forloop.counter0 }}" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators_{{ forloop.counter0 }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="images/single-image1.jpg" class="d-block w-100" alt="...">
+                    <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="images/single-image1.jpg" class="d-block w-100" alt="...">
+                    <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
                   </div>
                   <div class="carousel-item">
-                    <img src="images/single-image1.jpg" class="d-block w-100" alt="...">
+                    <img src="{{ kitchen.photo_1.url }}" class="d-block w-100" alt="...">
                   </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
@@ -264,57 +265,59 @@
           <div class="col-lg-6">
             <div class="detail p-5">
               <div class="display-header">
-                <h2 class="display-2 text-uppercase text-dark pb-2">Кухня №1</h2>
-                <p class="pb-3">Ac varius lectus tellus tellus quisque tristique aenean. Volutpat velit nulla eu iaculis risus in urna. Eu morbi vel purus velit dui vel egestas purus sed. Eget turpis tincidunt faucibus montes arcu in nullam tortor orci. Nulla tellus sed purus vestibulum sagittis pretium donec nec mattis ollis porta sit ut.</p>
-                <p>Facilisi ut vulputate volutpat a aliquet. Facilisis sed quis pretium amet hac. Justo tristique sagittis sodales viverra venenatis integer fringilla. </p>
+                <h2 class="display-2 text-uppercase text-dark pb-2">{{ kitchen.name }}</h2>
+                <p class="pb-3">{{ kitchen.description }}</p>
+                <p>es viverra venenatis integer fringilla. </p>
               </div>
             </div>
           </div>
           <hr>
-<!-- кухня №2 -->
-          
+
+          {% else %}
+ <!-- кухня №2 -->
           <div class="col-lg-6">
             <div class="detail p-5">
               <div class="display-header">
-                <h2 class="display-2 text-uppercase text-dark pb-2">Кухня №2</h2>
-                <p class="pb-3">Ac varius lectus tellus tellus quisque tristique aenean. Volutpat velit nulla eu iaculis risus in urna. Eu morbi vel purus velit dui vel egestas purus sed. Eget turpis tincidunt faucibus montes arcu in nullam tortor orci. Nulla tellus sed purus vestibulum sagittis pretium donec nec mattis ollis porta sit ut.</p>
-                <p>Facilisi ut vulputate volutpat a aliquet. Facilisis sed quis pretium amet hac. Justo tristique sagittis sodales viverra venenatis integer fringilla. </p>
+                  <h2 class="display-2 text-uppercase text-dark pb-2">{{ kitchen.name }}</h2>
+                  <p class="pb-3">{{ kitchen.description }}</p>
+                  <p>hhhhh</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-lg-6">
-            <div class="image-holder mb-4 jarallax">
+            <div class="col-lg-6">
+              <div class="image-holder mb-4 jarallax">
 
-              <div id="carouselExampleIndicators2" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleIndicators2" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <div id="carouselExampleIndicators2_{{ forloop.counter0 }}" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators2_{{ forloop.counter0 }}" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{{ kitchen.photo_1 }}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ kitchen.photo_1 }}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{{ kitchen.photo_1 }}" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"  data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Предыдущий</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"  data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Следующий</span>
+                  </button>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src="images/single-image2.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/single-image2.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/single-image2.jpg" class="d-block w-100" alt="...">
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators2"  data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Предыдущий</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators2"  data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Следующий</span>
-                </button>
               </div>
             </div>
-          </div>
-
+          {% endif %}
+          {% endfor %}
 
 
 
