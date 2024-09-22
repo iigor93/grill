@@ -13,7 +13,3 @@ services:
     logging:
       options:
         max-size: 50m
-    depends_on:
-      db-woods:
-        condition: service_healthy
-
